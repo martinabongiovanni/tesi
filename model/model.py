@@ -15,10 +15,11 @@ class Model:
         CS (Customer Service), LOG (Logistics), G&A (Governance and Administration).
         Più chiamate di questa funzione permettono quindi di costruire una lista di tuple del tipo
         (codice ateco (int), area (Business Area)).
-        :return: Oggetto di tipo business area associato al codice passato come parametro, relativa
+
+        :return: Oggetto di tipo business area associato al codice passato come parametro, relativo
         quindi all'ultima tupla inserita nella lista.
-        Se il codice passato come parametro è già stato analizzato in precedenza (è già nella lista),
-        la funzione restituisce None.
+        Se il codice passato come parametro è già stato analizzato in precedenza (è già nella lista) o
+        non è gestito da nessun caso, la funzione restituisce None.
         '''
         # converto il codice ateco passato come parametro in stringa, lo analizzo e lo assegno a una business area
         codice = str(codice)
@@ -36,6 +37,11 @@ class Model:
         return self.lista_combinazioni[-1][1]
 
     def logica_assegnazioni(self, codice):
+        '''
+        Questa funzione racchiude la logica di assegnazione della business area analizzando il codice.
+        :param codice: Codice ateco.
+        :return: Inserisce una nuova tupla del tipo (codice, area) nella lista di tuple.
+        '''
         if (codice[:2] == "01" or codice[:2] == "02" or codice[:2] == "05" or codice[:2] == "10" or
                 codice[:2] == "11" or codice[:2] == "12" or codice[:2] == "13" or codice[:2] == "14" or
                 codice[:2] == "15" or codice[:2] == "16" or codice[:2] == "17" or codice[:2] == "18" or

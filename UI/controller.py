@@ -12,7 +12,7 @@ class Controller:
         self.lista_codice_area = [] # lista di tuple del tipo: (codice ateco, area) - (str, Business area)
         self._btn_apri_file = None
 
-    def carica_dati_excel(self):
+    def _carica_dati_excel(self):
         '''
         Questa funzione legge i dati dal file in input, per ogni istanza preleva il codice ateco,
         chiama la funzione del model per analizzarlo e infine popola la lista_codice_area con gli
@@ -39,7 +39,7 @@ class Controller:
         # prelevo dal model la lista di combinazioni (codice, area)
         self.lista_codice_area = self._model.get_lista_combinazioni()
 
-    def salva_excel_ordinato(self):
+    def _salva_excel_ordinato(self):
         '''
         Questa funzione serve per salvare i dati contenuti nella lista_codice_area in un nuovo file Excel.
         Saranno creati due sheet per ordinare i dati rispettivamente in ordine di codice (crescente) e
@@ -79,8 +79,8 @@ class Controller:
         Alla pressione del bottone "Ottieni File", questa funzione genera il file con tutte le associazioni
         di codice ateco e business area.
         '''
-        self.carica_dati_excel()
-        self.salva_excel_ordinato()
+        self._carica_dati_excel()
+        self._salva_excel_ordinato()
         self._view.txt_result.controls.clear()
         row = ft.Row([ft.Text("Il file è stato generato correttamente!",
                                 color="#202820", size=18, weight=ft.FontWeight.BOLD),

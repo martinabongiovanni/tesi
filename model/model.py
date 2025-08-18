@@ -4,7 +4,7 @@ from model.BusinessArea import BusinessArea
 
 class Model:
     def __init__(self):
-        self.lista_combinazioni: List[(str, BusinessArea)] = []
+        self._lista_combinazioni: List[(str, BusinessArea)] = []
 
     def associazione_codiceAteco_BusinessArea (self, codice):
         '''
@@ -25,18 +25,18 @@ class Model:
         codice = str(codice)
 
         # se la lista di combinazioni è ancora vuota
-        if len(list(self.lista_combinazioni)) == 0:
-            self.logica_assegnazioni(codice)
-            return self.lista_combinazioni[0][1]
+        if len(list(self._lista_combinazioni)) == 0:
+            self._logica_assegnazioni(codice)
+            return self._lista_combinazioni[0][1]
 
         # se la lista di combinazioni ha degli elementi,
         # verifico prima che il codice in esame non sia già stato analizzato
-        elenco_codici = [combinazione[0] for combinazione in self.lista_combinazioni]
+        elenco_codici = [combinazione[0] for combinazione in self._lista_combinazioni]
         if codice not in elenco_codici: # not in: per evitare di sovrascrivere codici già analizzati
-            self.logica_assegnazioni(codice)
-        return self.lista_combinazioni[-1][1]
+            self._logica_assegnazioni(codice)
+        return self._lista_combinazioni[-1][1]
 
-    def logica_assegnazioni(self, codice):
+    def _logica_assegnazioni(self, codice):
         '''
         Questa funzione racchiude la logica di assegnazione della business area analizzando il codice.
         :param codice: Codice ateco.
@@ -55,29 +55,29 @@ class Model:
                 codice[:3] == "746" or codice[:3] == "747" or codice[:4] == "7481" or codice[:4] == "7482" or
                 codice[:4] == "7485" or codice[:4] == "7487" or codice[:2] == "90" or codice[:2] == "93" or
                 codice[:2] == "95" or codice[:2] == "97"):
-            self.lista_combinazioni.append((str(codice), BusinessArea("P&O", "Production and Operations", "#6495ed")))
+            self._lista_combinazioni.append((str(codice), BusinessArea("P&O", "Production and Operations", "#6495ed")))
         elif (codice[:3] == "501" or codice[:3] == "503" or codice[:3] == "505" or codice[:2] == "51" or
               codice[:3] == "521" or codice[:3] == "522" or codice[:3] == "523" or codice[:3] == "524" or
               codice[:3] == "525" or codice[:3] == "526" or codice[:3] == "633" or codice[:3] == "634" or
               codice[:2] == "70" or codice[:3] == "744" or codice[:2] == "92"):
-            self.lista_combinazioni.append((str(codice), BusinessArea("M&S", "Marketing and Sales", "#ffd700")))
+            self._lista_combinazioni.append((str(codice), BusinessArea("M&S", "Marketing and Sales", "#ffd700")))
         elif codice[:2] == "73" or codice[:3] == "742" or codice[:3] == "743":
-            self.lista_combinazioni.append((str(codice), BusinessArea("R&D", "Research and Development", "#9acd32")))
+            self._lista_combinazioni.append((str(codice), BusinessArea("R&D", "Research and Development", "#9acd32")))
         elif codice[:2] == "65" or codice[:2] == "66" or codice[:2] == "67" or codice[:3] == "741":
-            self.lista_combinazioni.append((str(codice), BusinessArea("F&C", "Finance and Control", "#9370db")))
+            self._lista_combinazioni.append((str(codice), BusinessArea("F&C", "Finance and Control", "#9370db")))
         elif codice[:3] == "745" or codice[:2] == "80":
-            self.lista_combinazioni.append((str(codice), BusinessArea("HR", "Human Resources", "#ffc0cb")))
+            self._lista_combinazioni.append((str(codice), BusinessArea("HR", "Human Resources", "#ffc0cb")))
         elif codice[:2] == "72":
-            self.lista_combinazioni.append((str(codice), BusinessArea("ICT", "Information and Communication Technology", "#20b2aa")))
+            self._lista_combinazioni.append((str(codice), BusinessArea("ICT", "Information and Communication Technology", "#20b2aa")))
         elif codice[:4] == "7486":
-            self.lista_combinazioni.append((str(codice), BusinessArea("CS", "Customer Service", "#c0c0c0")))
+            self._lista_combinazioni.append((str(codice), BusinessArea("CS", "Customer Service", "#c0c0c0")))
         elif (codice[:2] == "60" or codice[:2] == "61" or codice[:2] == "62" or codice[:3] == "631" or
               codice[:3] == "632" or codice[:3] == "641"):
-            self.lista_combinazioni.append((str(codice), BusinessArea("LOG", "Logistics", "#ffa500")))
+            self._lista_combinazioni.append((str(codice), BusinessArea("LOG", "Logistics", "#ffa500")))
         elif codice[:2] == "75" or codice[:2] == "85" or codice[:2] == "91" or codice[:2] == "99":
-            self.lista_combinazioni.append((str(codice), BusinessArea("G&A", "Governance and Administration", "#ff4500")))
+            self._lista_combinazioni.append((str(codice), BusinessArea("G&A", "Governance and Administration", "#ff4500")))
         else:  # codice ateco non gestito o già analizzato
             return None
 
     def get_lista_combinazioni(self):
-        return self.lista_combinazioni
+        return self._lista_combinazioni

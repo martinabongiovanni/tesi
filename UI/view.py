@@ -23,10 +23,9 @@ class View():
         self._page.controls.append(self._title)
 
         # descrizione
-        self._description = ft.Text("Il programma sviluppato, partendo da un database in cui sono raccolte "
-                                    "informazioni riguardo cooperative di tipo B, permette di generare un "
-                                    "file Excel in cui ogni codice ateco è assegnato alla specifica business "
-                                    "area di riferimento. "
+        self._description = ft.Text("Il programma sviluppato genera un file Excel in cui tutti i codici "
+                                    "ateco presenti nel database AIDA di Cooperative di tipo B sono assegnati "
+                                    "a una specifica business area. "
                                     "Il file generato sarà costituito da due sheet: nel primo i dati saranno "
                                     "ordinati per codice ateco crescente, nel secondo invece saranno raggruppati "
                                     "per business area mantenendo l'ordine alfabetico.", color="#202820",

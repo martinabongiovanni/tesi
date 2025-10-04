@@ -1,3 +1,4 @@
+import re
 from typing import List
 from model.BusinessArea import BusinessArea
 
@@ -23,6 +24,9 @@ class Model:
         '''
         # converto il codice ateco passato come parametro in stringa, lo analizzo e lo assegno a una business area
         codice = str(codice)
+        # Sostituisco qualunque carattere non sia una cifra con una stringa vuota per eliminarlo.
+        # Quindi pulisco la stringa da eventuali spazi.
+        codice = re.sub(r'\D', '', str(codice)).strip()
 
         # se la lista di combinazioni è ancora vuota
         if len(list(self._lista_combinazioni)) == 0:

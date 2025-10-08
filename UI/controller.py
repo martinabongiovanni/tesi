@@ -30,7 +30,7 @@ class Controller:
             dati = dict(zip(intestazioni, row))
 
             # prelevo il codice ateco della coopB in esame
-            codice = dati['ATECO 2002_codice']
+            codice = dati['ATECO 2002 Codice']
             if codice is None:
                 return
             # associo il codice a una business area chiamando il relativo metodo

@@ -54,16 +54,18 @@ class Model:
                 codice[:2] == "27" or codice[:2] == "28" or codice[:2] == "29" or codice[:2] == "30" or
                 codice[:2] == "31" or codice[:2] == "32" or codice[:2] == "33" or codice[:2] == "34" or
                 codice[:2] == "35" or codice[:2] == "36" or codice[:2] == "37" or codice[:2] == "40" or
-                codice[:2] == "41" or codice[:2] == "45" or codice[:3] == "502" or codice[:3] == "504" or
-                codice[:3] == "527" or codice[:2] == "55" or codice[:3] == "642" or codice[:2] == "71" or
-                codice[:3] == "746" or codice[:3] == "747" or codice[:4] == "7481" or codice[:4] == "7482" or
+                codice[:2] == "41" or codice[:2] == "45" or codice[:3] == "500" or codice[:3] == "502" or
+                codice[:3] == "504" or codice[:3] == "527" or codice[:2] == "55" or codice[:3] == "640" or
+                codice[:3] == "642" or codice[:2] == "71" or codice[:3] == "740" or codice[:3] == "746" or
+                codice[:3] == "747" or codice[:3] == "7480" or codice[:4] == "7481" or codice[:4] == "7482" or
                 codice[:4] == "7485" or codice[:4] == "7487" or codice[:2] == "90" or codice[:2] == "93" or
-                codice[:2] == "95" or codice[:2] == "97"):
+                codice[:2] == "95" or codice[:2] == "96" or codice[:2] == "97"):
             self._lista_combinazioni.append((str(codice), BusinessArea("P&O", "Production and Operations", "#6495ed")))
         elif (codice[:3] == "501" or codice[:3] == "503" or codice[:3] == "505" or codice[:2] == "51" or
-              codice[:3] == "521" or codice[:3] == "522" or codice[:3] == "523" or codice[:3] == "524" or
-              codice[:3] == "525" or codice[:3] == "526" or codice[:3] == "633" or codice[:3] == "634" or
-              codice[:2] == "70" or codice[:3] == "744" or codice[:2] == "92"):
+              codice[:3] == "520" or codice[:3] == "521" or codice[:3] == "522" or codice[:3] == "523" or
+              codice[:3] == "524" or codice[:3] == "525" or codice[:3] == "526" or codice[:3] == "630" or
+              codice[:3] == "633" or codice[:3] == "634" or codice[:2] == "70" or codice[:3] == "744" or
+              codice[:2] == "92"):
             self._lista_combinazioni.append((str(codice), BusinessArea("M&S", "Marketing and Sales", "#ffd700")))
         elif codice[:2] == "73" or codice[:3] == "742" or codice[:3] == "743":
             self._lista_combinazioni.append((str(codice), BusinessArea("R&D", "Research and Development", "#9acd32")))
